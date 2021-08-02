@@ -20,12 +20,12 @@
 @keyframes boxShow {
   0% {
     right: 40px;
-    bottom: -36px;
+    bottom: -26px;
     opacity: 0.5;
   }
   100% {
     right: 50px;
-    bottom: -36px;
+    bottom: -26px;
     opacity: 1;
   }
 }
@@ -36,7 +36,7 @@
   // top: -20px;
   display: flex;
   padding: 0px 5px;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0,0,0,0.4);
   border-radius: 6px;
   animation: boxShow 0.5s forwards;
   .optItem {
@@ -65,6 +65,17 @@
     &:hover {
       cursor: pointer;
     }
+  }
+  &::after{
+    content: '';
+    display: block;
+    position: absolute;
+    right: -5px;
+    top: calc( 50% - 5px );
+    border:5px solid rgba(0,0,0,0);
+    border-top-color: rgba(0, 0, 0, 0.4) ;
+    border-right-color: rgba(0, 0, 0, 0.4) ;
+    transform: rotate(45deg);
   }
 }
 

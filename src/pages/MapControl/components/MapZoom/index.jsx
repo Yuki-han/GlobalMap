@@ -5,7 +5,7 @@ import { PlusOutlined, MinusOutlined } from '@ant-design/icons';
 // import * as Cesium from 'cesium';
 
 const MapZoom = (props) => {
-  const { basicMapStore, dispatch, cesiumLayers } = props;
+  const { basicMapStore, dispatch } = props;
   const { basicMap, body } = basicMapStore;
   // const { viewer } = cesiumLayers;
 
@@ -68,6 +68,4 @@ const MapZoom = (props) => {
   );
 };
 
-export default connect(({ basicMapStore, cesiumLayers }) => ({ basicMapStore, cesiumLayers }))(
-  MapZoom,
-);
+export default connect(({ basicMapStore }) => ({ basicMapStore }))(MapZoom);
