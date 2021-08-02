@@ -1,0 +1,54 @@
+// 工具栏
+.toolBar {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 15px;
+  width: 60px;
+  // height: calc(100% - 64px);
+  padding: 0px;
+  // padding-top: 20px;
+  color: #fff !important;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 6px;
+  .toolItem {
+    margin: 20px 0px;
+    &:hover {
+      cursor: pointer;
+    }
+    p {
+      margin: 0;
+      font-size: 12px;
+    }
+  }
+}
+
+// 气泡卡片（antd样式修改）
+:global {
+  .ant-popover-arrow {
+    border-top-color: rgba(0, 0, 0, 0.4) !important;
+    border-right-color: rgba(0, 0, 0, 0.4) !important;
+    border-bottom-color: rgba(0, 0, 0, 0.4) !important;
+    border-left-color: rgba(0, 0, 0, 0.4) !important;
+  }
+  .ant-popover-inner {
+    background-color: rgba(0, 0, 0, 0.4) !important;
+  }
+  .ant-popover-inner-content {
+    color: #fff;
+  }
+  .ant-popover-arrow-content{
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+}
+
+// 气泡卡片（自定义内容样式）
+.markTool {
+  p {
+    margin: 4px 0px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
