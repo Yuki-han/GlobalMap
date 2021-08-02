@@ -14,7 +14,7 @@ const MapChange = (props) => {
   const [select, setSelect] = useState(undefined);
 
   useEffect(() => {
-    setSelect('MAP');
+    setSelect('GIS');
   }, []);
 
   const selectBaseMap = (key) => {

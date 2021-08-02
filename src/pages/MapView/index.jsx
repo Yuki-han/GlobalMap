@@ -23,7 +23,7 @@ const MapView = (props) => {
         Layers.push(...item.children);
       });
 
-      const initMapLayers = OlMapUtil.FixCustomInitMapLayers(Layers, 'Bing');
+      const initMapLayers = OlMapUtil.FixCustomInitMapLayers(Layers, 'OSMRoad');
       // 实例化地图对象,采用自定义地图底图的方式
       const temp = new OlMap('MapFrame', undefined, undefined, initMapLayers);
 
