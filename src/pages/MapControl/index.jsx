@@ -5,32 +5,30 @@ import MapChange from './components/MapChange';
 import MapZoom from './components/MapZoom';
 
 const MapControl = (props) => {
-  // const { basicMapStore, dispatch } = props;
-  // const [mapModal, setMapModal] = useState('2D');
+  const { basicMapStore, dispatch } = props;
+  const { mapModel } = basicMapStore;
 
   // const changeMapModal = () => {
-  //   if (mapModal === '2D') {
-  //     setMapModal('3D');
+  //   if (mapModel === '2D') {
   //     dispatch({
   //       type: 'basicMapStore/setState',
-  //       payload: { body: 'Map3D' },
+  //       payload: { mapModel: '3D' },
   //     });
   //   } else {
-  //     setMapModal('2D');
   //     dispatch({
   //       type: 'basicMapStore/setState',
-  //       payload: { body: 'Map2D' },
+  //       payload: { mapModel: '2D' },
   //     });
   //   }
   // };
 
   return (
     <div className={styles.mapControl}>
+      <MapZoom />
       {/* <div className={styles.conBtn} onClick={() => changeMapModal()}>
-        {mapModal}
+        {mapModel}
       </div> */}
       <MapChange />
-      <MapZoom />
     </div>
   );
 };
