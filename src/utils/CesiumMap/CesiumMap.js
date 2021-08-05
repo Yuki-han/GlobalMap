@@ -35,11 +35,11 @@ class CesiumMap {
     // 地图盒子div的id
     this.target = target;
     // 地图 默认经度
-    this.lon = viewPosition.lon || 103.166853;
+    this.lon = viewPosition.lon || 104.06003544;
     // 地图 默认纬度
-    this.lat = viewPosition.lat || 31.436473;
+    this.lat = viewPosition.lat || 13.49921328;
     // 地图 默认缩放等级
-    this.height = viewPosition.height || 9000000;
+    this.height = viewPosition.height || 19000000;
     // 地图 角度
     this.angle = viewPosition.angle || -90;
     // 地图控件设置
@@ -173,13 +173,13 @@ class CesiumMap {
   flyTo(viewPosition = {}) {
     this.viewer.camera.flyTo({
       destination: Cesium.Cartesian3.fromDegrees(
-        viewPosition.lon || 103.166853,
-        viewPosition.lat || 31.436473,
-        viewPosition.height || 9000000,
+        viewPosition.lon || this.lon,
+        viewPosition.lat || this.lat,
+        viewPosition.height || this.height,
       ), // 设置位置
       orientation: {
         heading: Cesium.Math.toRadians(0),
-        pitch: Cesium.Math.toRadians(viewPosition.angle || -90), // 倾斜角度
+        pitch: Cesium.Math.toRadians(viewPosition.angle || this.angle), // 倾斜角度
       },
     });
   }
@@ -187,12 +187,12 @@ class CesiumMap {
   // 无动画的移动
   lookAt(viewPosition = {}) {
     const center = Cesium.Cartesian3.fromDegrees(
-      viewPosition.lon || 103.166853,
-      viewPosition.lat || 31.436473,
+      viewPosition.lon || this.lon,
+      viewPosition.lat || this.lat,
     );
     const heading = Cesium.Math.toRadians(0);
-    const pitch = Cesium.Math.toRadians(viewPosition.angle || -90);
-    const range = viewPosition.height || 9000000;
+    const pitch = Cesium.Math.toRadians(viewPosition.angle || this.angle);
+    const range = viewPosition.height || this.height;
     this.viewer.camera.lookAt(center, new Cesium.HeadingPitchRange(heading, pitch, range));
   }
 
