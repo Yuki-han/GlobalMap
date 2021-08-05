@@ -53,6 +53,7 @@
     "@types/lodash.isequal": "^4.5.5",
     "@umijs/route-utils": "^1.0.33",
     "antd": "^4.12.0",
+    "cesium": "^1.83.0",
     "classnames": "^2.2.6",
     "dva": "^2.4.0",
     "file-loader": "^6.2.0",

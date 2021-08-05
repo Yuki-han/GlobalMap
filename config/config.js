@@ -5,6 +5,11 @@ import routes from './routes';
 import proxy from './proxy';
 const { REACT_APP_ENV } = process.env;
 
+// cesium配置 - config中配置
+const cesiumSource = 'node_modules/cesium/Source';
+const cesiumWorkers = '../Build/Cesium/Workers';
+const path = require('path');
+
 export default defineConfig({
   // base: '/',
   // publicPath: '/',
@@ -55,4 +60,10 @@ export default defineConfig({
         esModule: false,
       });
   },
+  // cesium配置 - config中配置
+  copy: [
+    { from: path.join(cesiumSource, cesiumWorkers), to: 'Workers' },
+    { from: path.join(cesiumSource, 'Assets'), to: 'Assets' },
+    { from: path.join(cesiumSource, 'Widgets'), to: 'Widgets' },
+  ],
 });
