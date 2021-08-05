@@ -4,7 +4,9 @@ import forEachTree from '@/utils/forEachTree';
 const Model = {
   namespace: 'basicMapStore',
   state: {
-    basicMap: undefined, // 地图对象
+    basicMap: undefined, // 2D地图对象
+    viewerMap: undefined, // 3D地图对象
+    mapModel: '2D',
     mapLayerMenu: [], // 渲染地图图层
     MapLayer: 'Bing', // 当前地图图层
   },
