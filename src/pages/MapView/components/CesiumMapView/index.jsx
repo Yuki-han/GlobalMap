@@ -4,7 +4,7 @@ import img from '@/assets/geography.png';
 import CesiumMap from '@/utils/CesiumMap/CesiumMap';
 
 const MapCesium = (props) => {
-  const { basicMapStore, dispatch } = props;
+  const { basicMapStore, dispatch, style } = props;
   const { viewerMap } = basicMapStore;
   useEffect(() => {
     const viewer = new CesiumMap(
@@ -21,7 +21,7 @@ const MapCesium = (props) => {
     dispatch({ type: 'basicMapStore/setState', payload: { viewerMap: viewer } });
   }, []);
   return (
-    <div id="MapBox" style={{ width: '100%', height: '100%' }}>
+    <div id="MapBox" style={{ ...style, width: '100%', height: '100%' }}>
       {/* 下面的div 可以将版权注释掉 */}
       <div id="credit"></div>
     </div>

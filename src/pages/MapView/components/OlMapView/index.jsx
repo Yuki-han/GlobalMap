@@ -5,7 +5,7 @@ import OlMap from '@/utils/OlMap/OlMap';
 import OlMapUtil from '@/utils/OlMap/OlMapUtil';
 
 const MapOpenLayer = (props) => {
-  const { dispatch, basicMapStore } = props;
+  const { dispatch, basicMapStore, style } = props;
   const { basicMap, mapLayerMenu } = basicMapStore;
 
   useEffect(() => {
@@ -43,7 +43,7 @@ const MapOpenLayer = (props) => {
     }
   }, [mapLayerMenu]);
 
-  return <div id="MapFrame" style={{ width: '100%', height: '100%' }} />;
+  return <div id="MapFrame" style={{ ...style, width: '100%', height: '100%' }} />;
 };
 
 export default connect(({ basicMapStore }) => ({ basicMapStore }))(MapOpenLayer);
