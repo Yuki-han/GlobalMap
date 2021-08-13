@@ -11,18 +11,23 @@ import MapHeader from '@/pages/MapHeader';
 import MapView from '@/pages/MapView';
 import MapTool from '@/pages/MapTool';
 import MapControl from '@/pages/MapControl';
+import MapSearch from '@/pages/MapSearch';
 
 // cesium配置 - 入口文件中配置
 // 设置静态资源目录
 buildModuleUrl.setBaseUrl('../cesium');
 
-const MapMain = () => {
+const MapMain = (props) => {
+  const { basicMapStore } = props;
+  const { mapModel } = basicMapStore;
+
   return (
     <>
       <MapHeader />
       <MapView />
       <MapTool />
       <MapControl />
+      {mapModel === '2D' ? <MapSearch /> : <></>}
     </>
   );
 };

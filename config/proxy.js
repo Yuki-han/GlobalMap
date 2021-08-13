@@ -6,13 +6,20 @@
  * For details, please see
  * https://pro.ant.design/docs/deploy
  */
- export default {
+export default {
   dev: {
     '/api/': {
       target: 'https://preview.pro.ant.design',
       changeOrigin: true,
       pathRewrite: {
         '^': '',
+      },
+    },
+    '/amap/': {
+      target: 'https://restapi.amap.com/v3/',
+      changeOrigin: true,
+      pathRewrite: {
+        '^/amap/': '',
       },
     },
   },

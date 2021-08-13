@@ -1,4 +1,5 @@
 import { getMapLayerMenu } from '@/services/mapApi';
+import { getLocation, getQueryData } from '@/services/amapApi';
 import forEachTree from '@/utils/forEachTree';
 
 const Model = {
@@ -21,6 +22,35 @@ const Model = {
               ...item,
             })),
           },
+        });
+      }
+    },
+    // 高德数据
+    *getLocation({ payload }, { call, select }) {
+      const basicMap = yield select((state) => state.basicMapStore.basicMap);
+      const response = yield call(getLocation, payload);
+      if (response.status === '1') {
+        const location = response.geocodes[0].location.split(',');
+        if (basicMap) {
+          basicMap.setCenter(location);
+          basicMap.setZoom(16);
+        }
+      }
+    },
+    // 高德数据
+    *getQueryData({ payload }, { call, put }) {
+      const response = yield call(getQueryData, payload);
+      if (response.status === '1') {
+        const tips = response.tips.map((item) => {
+          return {
+            name: item.name,
+            district: item.district,
+            location: item.location,
+          };
+        });
+        yield put({
+          type: 'setState',
+          payload: { queryData: tips },
         });
       }
     },
